@@ -15,6 +15,7 @@ export class AppComponent {
       poster: 'https://image.tmdb.org/t/p/w185/btTdmkgIvOi0FFip1sPuZI2oQG6.jpg',
       plot: 'Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot…',
       year: 1977,
+      seen: true,
     },
     {
       id: 2,
