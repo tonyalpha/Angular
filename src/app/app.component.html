@@ -1,7 +1,11 @@
 <!-- Toolbar -->
 <div>
 
-    <media-app-header></media-app-header>  
-
+    <media-app-header></media-app-header>
+    <div *ngFor="let movie of movies" class="collection">
+        <img [src]="movie.poster">
+        <h4>Movie: {{movie.title}}</h4>
+        <h6>Plot: {{movie.plot}}</h6>
+      </div>
     <router-outlet></router-outlet>
   </div>
