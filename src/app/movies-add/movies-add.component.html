@@ -1,13 +1,20 @@
 <br><br><br><br>
+<div>
 <form>
     <label>Title:</label>
-    <input [(ngModel)]="movie.title" name="title">
+    <input name="title" #titleInput>
     <br>
-    <button type="button">Submit</button>
-</form>
+    <button type="button" (click)="search(titleInput.value)">Search</button>
+</form></div>
 
-
+<div *ngFor="let movie of movies" class="collection">
+        <a [routerLink]="['/movies', movie.id]"><img [src]="movie.poster"></a>
+        <h4 [class]="movie.seen? 'lime':'pink'"> <i class="material-icons">home</i> {{movie.title|uppercase}}</h4>
+      </div>
+    
 <br>
 <br>
+
+
 
 <div class="card-action"> <a class="btn" routerLink="/movies">Go Back</a> </div>

@@ -21,9 +21,9 @@ export class MoviesService {
     return this.httpClient.get<Movie>(`${this.apiUrl}/${id}`);
     //this.movies.find(movie => movie.id === id);
   }
-  lookupMoviesByTitle(value: string) : Observable<Movie>{
+  lookupMoviesByTitle(value: string) : Observable<Movie[]>{
     const  params = new  HttpParams().set('title', value);
-    return this.httpClient.get<Movie>(this.apiUrl + "/search/", {params});
+    return this.httpClient.get<Movie[]>(this.apiUrl + "/search", {params});
   }
 
   addMovie(onlineId: string) {

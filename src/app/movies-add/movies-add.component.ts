@@ -9,7 +9,7 @@ import { Movie } from '../movie.model';
   styleUrls: ['./movies-add.component.css']
 })
 export class MoviesAddComponent implements OnInit {
-  movie: Movie;
+  movies: Movie[];
 
   constructor(private route: ActivatedRoute, private movieService: MoviesService) { }
 
@@ -17,7 +17,7 @@ export class MoviesAddComponent implements OnInit {
     // let title = this.route.snapshot.paramMap.get("title");
     // this.movieService.addMovie(title);
   }
-  search() {
-    this.movieService.lookupMoviesByTitle("Star Wars").subscribe();
+  search(title: string) {
+    this.movieService.lookupMoviesByTitle(title).subscribe(m => this.movies = m);
   }
 }
