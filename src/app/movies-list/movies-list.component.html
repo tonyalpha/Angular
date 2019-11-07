@@ -1,0 +1,4 @@
+<div *ngFor="let movie of movies" class="collection">
+    <a [routerLink]="['/movies', movie.id]"><img [src]="movie.poster"></a>
+    <h4 [class]="movie.seen? 'lime':'pink'"> <i class="material-icons">home</i> {{movie.title|uppercase}}</h4>
+  </div>
