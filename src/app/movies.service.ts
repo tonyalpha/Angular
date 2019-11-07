@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './movie.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 
@@ -21,8 +21,12 @@ export class MoviesService {
     return this.httpClient.get<Movie>(`${this.apiUrl}/${id}`);
     //this.movies.find(movie => movie.id === id);
   }
+  lookupMoviesByTitle(value: string) : Observable<Movie>{
+    const  params = new  HttpParams().set('title', value);
+    return this.httpClient.get<Movie>(this.apiUrl + "/search/", {params});
+  }
 
   addMovie(onlineId: string) {
-    this.httpClient.post<Movie>(this.apiUrl, "");
+    this.httpClient.post<Movie>(this.apiUrl, onlineId);
   }
 }
